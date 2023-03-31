@@ -26,12 +26,12 @@ describe "tdd" do
     end
 
     describe "#my_transpose" do
-    rows = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8] 
-    ]
-    transposed = rows.transpose
+        rows = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8] 
+        ]
+        transposed = rows.transpose
 
         it "should return transposed matrix" do
             expect(rows.my_transpose).to match_array(transposed)
@@ -39,6 +39,19 @@ describe "tdd" do
 
         it "should not use the ruby built in Array#transpose method" do
             expect(rows.my_transpose).to_not receive(:transpose)
+        end
+    end
+
+    describe "#stock_picker" do
+        arr = [20, 10, 7, 15, 25, 22]
+
+        it "return the most profitable pair of indices to first buy and then sell the stock" do
+            expect(arr.stock_picker).to eq([2, 4])
+        end
+
+        it "should not sell stock before it's bought" do
+            pair = arr.stock_picker
+            expect(pair[1]).to be > pair[0] 
         end
     end
 end
