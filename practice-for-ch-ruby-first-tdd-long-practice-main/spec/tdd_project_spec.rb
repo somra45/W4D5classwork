@@ -1,4 +1,4 @@
-require "../lib/tdd_project.rb"
+require "tdd_project.rb"
 require "rspec"
 
 describe "tdd" do
