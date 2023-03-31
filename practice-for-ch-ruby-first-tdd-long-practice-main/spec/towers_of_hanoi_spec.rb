@@ -53,8 +53,19 @@ describe TowersOfHanoi do
     end
 
     describe "#won?" do
-        it "" do
+        toh_4 = TowersOfHanoi.new
+        toh_4.piles[0]=[]
+        toh_4.piles[1]=[]
+        toh_4.piles[2]=[3, 2, 1]
 
+        it "should return true if all discs are in pile 3" do
+            expect(toh_4.win?).to be_truthy
+        end
+
+        it "should return false if otherwise" do
+            toh_4[0] = [1]
+            toh_4[2] = [3, 2]
+            expect(toh_4.won?).to be_falsey
         end
     end
 end
